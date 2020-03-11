@@ -26,7 +26,11 @@ public class Main {
 		//Instala el apk
 		System.out.print("Ingrese la ruta del apk a instalar (incluyendo el nombre del apk):");
 //		String ruta_apk = reader.readLine();
-		out.println("adb install " + RUTA_APK);
+		out.println("adb install -r " + RUTA_APK);
+		out.println("adb shell am start -n com.example.adbapp/com.example.adbapp.MainActivity");
+		out.println("adb shell screencap -p /sdcard/capturasApp/screen.png");
+//		out.println("adb shell am force-stop com.example.adbapp");
+		
 		
 		// Recorre el número de acciones
 		int c=1;
