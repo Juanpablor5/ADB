@@ -8,6 +8,7 @@ import java.io.PrintWriter;
 public class Main {
 	
 	public static final String RUTA_ADB = "C:\\Users\\Juan Pablo Rocha\\AppData\\Local\\Android\\Sdk\\platform-tools";
+	public static final String RUTA_APK = "C:\\adb\\app.apk";
 	
 	public static void main(String[] args) throws IOException
 	{
@@ -18,9 +19,14 @@ public class Main {
 		System.out.print("Ingrese el número de acciones que desea realizar:");		 
 		String n = reader.readLine();
 		
-//		System.out.print("Ingrese la ruta de la carpeta raiz del ADB:");		 
-//		String adb = reader.readLine();
+		System.out.print("Ingrese la ruta de la carpeta raiz del ADB:");		 
+//		String ruta_adb = reader.readLine();
 		out.println("cd " + RUTA_ADB);
+		
+		//Instala el apk
+		System.out.print("Ingrese la ruta del apk a instalar (incluyendo el nombre del apk):");
+//		String ruta_apk = reader.readLine();
+		out.println("adb install " + RUTA_APK);
 		
 		// Recorre el número de acciones
 		int c=1;
