@@ -59,8 +59,10 @@ public class Main {
 		
 		reporte.println("<h3>Comienza a realizar los " + n + " eventos a las " + dtf.format(hora) + ":</h3>");
 		// Recorre el número de acciones
+		
 		int c=1;
 		while(c<=Integer.parseInt(n)) {
+			//Instrucción Back
 			if(c%8==0) {
 				reporte.println("<h3>Hace back</h3>");
 				script.println("adb shell input keyevent 4");
@@ -80,6 +82,12 @@ public class Main {
 				c++;
 			}
 			
+			//Instrucción Back
+			if(c%8==0) {
+				reporte.println("<h3>Hace back</h3>");
+				script.println("adb shell input keyevent 4");
+			}
+			
 			//Evento 2
 			if(c<=Integer.parseInt(n)) {
 				int x = 250;
@@ -97,6 +105,12 @@ public class Main {
 				c++;
 			}
 			
+			//Instrucción Back
+			if(c%8==0) {
+				reporte.println("<h3>Hace back</h3>");
+				script.println("adb shell input keyevent 4");
+			}
+			
 			//Evento 3
 			if(c<=Integer.parseInt(n)) {
 				reporte.println("<h4>Se inicia el evento 3: Wi-Fi</h4>");
@@ -108,7 +122,13 @@ public class Main {
 				script.println("adb shell input keyevent 3");
 				reporte.println("<img src=\"" + RUTA_ADB + "\\imgjpr\\screen"+c+".png\" width=\"320\" height=\"640\">");
 				c++;
-			}		
+			}
+			
+			//Instrucción Back
+			if(c%8==0) {
+				reporte.println("<h3>Hace back</h3>");
+				script.println("adb shell input keyevent 4");
+			}
 			
 			//Evento 4
 			if(c<=Integer.parseInt(n)) {
@@ -123,6 +143,12 @@ public class Main {
 				script.println("adb shell input keyevent 3");
 				reporte.println("<img src=\"" + RUTA_ADB + "\\imgjpr\\screen"+c+".png\" width=\"320\" height=\"640\">");
 				c++;
+			}
+			
+			//Instrucción Back
+			if(c%8==0) {
+				reporte.println("<h3>Hace back</h3>");
+				script.println("adb shell input keyevent 4");
 			}
 			
 			//Evento 5
@@ -140,6 +166,12 @@ public class Main {
 				c++;
 			}
 			
+			//Instrucción Back
+			if(c%8==0) {
+				reporte.println("<h3>Hace back</h3>");
+				script.println("adb shell input keyevent 4");
+			}
+			
 			//Evento 6
 			if(c<=Integer.parseInt(n)) {
 				reporte.println("<h4>Se inicia el evento 6: abrir primer app</h4>");
@@ -152,6 +184,12 @@ public class Main {
 				script.println("adb shell input keyevent 3");
 				reporte.println("<img src=\"" + RUTA_ADB + "\\imgjpr\\screen"+c+".png\" width=\"320\" height=\"640\">");
 				c++;
+			}
+			
+			//Instrucción Back
+			if(c%8==0) {
+				reporte.println("<h3>Hace back</h3>");
+				script.println("adb shell input keyevent 4");
 			}
 			
 			//Evento 7
@@ -171,14 +209,21 @@ public class Main {
 				c++;
 			}
 			
+			//Instrucción Back
+			if(c%8==0) {
+				reporte.println("<h3>Hace back</h3>");
+				script.println("adb shell input keyevent 4");
+			}
+			
 			//Evento 8
 			if (c <= Integer.parseInt(n)) {
 				reporte.println("<h4>Se inicia el evento 8: Estado de batería</h4>");
 				script.println("adb shell input keyevent 3");
-				script.println("adb shell cat /sys/class/power_supply/battery/capacity > batterystats.txt");
+				script.println("adb shell cat /sys/class/power_supply/battery/capacity > batterystats.txt");				
 
-				File file = new File(RUTA_ADB + "\\batterystats.txt");
-
+				File file = new File(RUTA_ADB + "/batterystats.txt");
+				file.createNewFile();
+				
 				BufferedReader br = new BufferedReader(new FileReader(file));
 				String st;
 				while ((st = br.readLine()) != null) {
@@ -186,6 +231,12 @@ public class Main {
 				}				
 				br.close();
 				c++;
+			}
+			
+			//Instrucción Back
+			if(c%8==0) {
+				reporte.println("<h3>Hace back</h3>");
+				script.println("adb shell input keyevent 4");
 			}
 			
 			//Evento 9
@@ -202,6 +253,12 @@ public class Main {
 				script.println("adb shell input keyevent 3");
 				reporte.println("<img src=\"" + RUTA_ADB + "\\imgjpr\\screen"+c+".png\" width=\"320\" height=\"640\">");
 				c++;
+			}
+			
+			//Instrucción Back
+			if(c%8==0) {
+				reporte.println("<h3>Hace back</h3>");
+				script.println("adb shell input keyevent 4");
 			}
 			
 			//Evento 10
@@ -228,6 +285,7 @@ public class Main {
 		// Ejecuta el script
 		Runtime rt = Runtime.getRuntime();
 		rt.exec("cmd /c start script.bat");
+		//TODO Exit
 //		out.println("@exit");
 		script.close();
 		reporte.close();
