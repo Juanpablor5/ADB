@@ -31,7 +31,7 @@ public class Main {
 		LocalDateTime hora = LocalDateTime.now();  
 		
 		BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-		System.out.print("Ingrese el nï¿½mero de acciones que desea realizar:");		 
+		System.out.print("Ingrese el nÃºmero de acciones que desea realizar:");		 
 		String n = reader.readLine();
 		
 		System.out.print("Ingrese la ruta de la carpeta raiz del ADB:");		 
@@ -57,7 +57,7 @@ public class Main {
 		
 		int c=1;
 		while(c<=Integer.parseInt(n)) {
-			//Instrucción Back
+			//Instrucciï¿½n Back
 			if(c%8==0) {
 				reporte.println("<h3>Hace back</h3>");
 				script.println("adb shell input keyevent 4");
@@ -77,7 +77,7 @@ public class Main {
 				c++;
 			}
 			
-			//Instrucción Back
+			//Instrucciï¿½n Back
 			if(c%8==0) {
 				reporte.println("<h3>Hace back</h3>");
 				script.println("adb shell input keyevent 4");
@@ -100,7 +100,7 @@ public class Main {
 				c++;
 			}
 			
-			//Instrucción Back
+			//Instrucciï¿½n Back
 			if(c%8==0) {
 				reporte.println("<h3>Hace back</h3>");
 				script.println("adb shell input keyevent 4");
@@ -119,7 +119,7 @@ public class Main {
 				c++;
 			}
 			
-			//Instrucción Back
+			//Instrucciï¿½n Back
 			if(c%8==0) {
 				reporte.println("<h3>Hace back</h3>");
 				script.println("adb shell input keyevent 4");
@@ -140,7 +140,7 @@ public class Main {
 				c++;
 			}
 			
-			//Instrucción Back
+			//Instrucciï¿½n Back
 			if(c%8==0) {
 				reporte.println("<h3>Hace back</h3>");
 				script.println("adb shell input keyevent 4");
@@ -161,7 +161,7 @@ public class Main {
 				c++;
 			}
 			
-			//Instrucción Back
+			//Instrucciï¿½n Back
 			if(c%8==0) {
 				reporte.println("<h3>Hace back</h3>");
 				script.println("adb shell input keyevent 4");
@@ -181,7 +181,7 @@ public class Main {
 				c++;
 			}
 			
-			//Instrucción Back
+			//Instrucciï¿½n Back
 			if(c%8==0) {
 				reporte.println("<h3>Hace back</h3>");
 				script.println("adb shell input keyevent 4");
@@ -204,7 +204,7 @@ public class Main {
 				c++;
 			}
 			
-			//Instrucción Back
+			//Instrucciï¿½n Back
 			if(c%8==0) {
 				reporte.println("<h3>Hace back</h3>");
 				script.println("adb shell input keyevent 4");
@@ -228,7 +228,7 @@ public class Main {
 				c++;
 			}
 			
-			//Instrucción Back
+			//Instrucciï¿½n Back
 			if(c%8==0) {
 				reporte.println("<h3>Hace back</h3>");
 				script.println("adb shell input keyevent 4");
@@ -250,7 +250,7 @@ public class Main {
 				c++;
 			}
 			
-			//Instrucción Back
+			//Instrucciï¿½n Back
 			if(c%8==0) {
 				reporte.println("<h3>Hace back</h3>");
 				script.println("adb shell input keyevent 4");
