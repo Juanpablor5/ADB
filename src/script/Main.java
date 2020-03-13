@@ -10,10 +10,7 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
 public class Main {
-	
-	public static final String RUTA_ADB = "C:\\Users\\Juan Pablo Rocha\\AppData\\Local\\Android\\Sdk\\platform-tools";
-	public static final String RUTA_APK = "C:\\adb\\app.apk";
-	
+		
 	public static void main(String[] args) throws IOException
 	{
 		// Crea el script
@@ -34,31 +31,29 @@ public class Main {
 		LocalDateTime hora = LocalDateTime.now();  
 		
 		BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-		System.out.print("Ingrese el número de acciones que desea realizar:");		 
+		System.out.print("Ingrese el nï¿½mero de acciones que desea realizar:");		 
 		String n = reader.readLine();
 		
-		//TODO CAMBIAR RUTAS PARA PARÁMETRO
 		System.out.print("Ingrese la ruta de la carpeta raiz del ADB:");		 
-//		String ruta_adb = reader.readLine();
-		script.println("cd " + RUTA_ADB);
+		String ruta_adb = reader.readLine();
+		script.println("cd " + ruta_adb);
 		
 		//Instala el apk
 		System.out.print("Ingrese la ruta del apk a instalar (incluyendo el nombre del apk):");
-//		String ruta_apk = reader.readLine();
+		String ruta_apk = reader.readLine();
 		
-		//TODO DESCOMENTAR ESTOOOO
-		script.println("adb install -r " + RUTA_APK);
+		script.println("adb install -r " + ruta_apk);
 		reporte.println("<h4>Se instala la app a las " + dtf.format(hora) + ":</h4>");
 		script.println("adb shell am start -n com.example.adbapp/com.example.adbapp.MainActivity");
 		script.println("timeout 1");
 		script.println("adb shell screencap -p /sdcard/screen.png");
 		script.println("mkdir imgjpr");
 		script.println("adb pull /sdcard/screen.png imgjpr/screen.png");
-		reporte.println("<img src=\"" + RUTA_ADB + "\\imgjpr\\screen.png\" width=\"320\" height=\"640\">");
+		reporte.println("<img src=\"" + ruta_adb + "\\imgjpr\\screen.png\" width=\"320\" height=\"640\">");
 		script.println("adb shell am force-stop com.example.adbapp");
 		
 		reporte.println("<h3>Comienza a realizar los " + n + " eventos a las " + dtf.format(hora) + ":</h3>");
-		// Recorre el número de acciones
+		// Recorre el nï¿½mero de acciones
 		
 		int c=1;
 		while(c<=Integer.parseInt(n)) {
@@ -78,7 +73,7 @@ public class Main {
 				script.println("adb shell screencap -p /sdcard/screen"+c+".png");
 				script.println("adb pull /sdcard/screen"+c+".png imgjpr/screen"+c+".png");
 				script.println("adb shell input keyevent 3");
-				reporte.println("<img src=\"" + RUTA_ADB + "\\imgjpr\\screen"+c+".png\" width=\"320\" height=\"640\">");
+				reporte.println("<img src=\"" + ruta_adb + "\\imgjpr\\screen"+c+".png\" width=\"320\" height=\"640\">");
 				c++;
 			}
 			
@@ -92,7 +87,7 @@ public class Main {
 			if(c<=Integer.parseInt(n)) {
 				int x = 250;
 				for (int i = 0; i < 3; i++) {
-					reporte.println("<h4>Se inicia el evento 2: pulsación larga</h4>");
+					reporte.println("<h4>Se inicia el evento 2: pulsaciï¿½n larga</h4>");
 					script.println("adb shell input keyevent 3");
 					script.println("adb shell input swipe 538 1714 583 1005 100");
 					script.println("adb shell input swipe "+(180+x*i)+" 940 "+(180+x*i)+" 940 1000");
@@ -100,7 +95,7 @@ public class Main {
 					script.println("adb shell screencap -p /sdcard/screen"+(c+i)+".png");
 					script.println("adb pull /sdcard/screen"+(c+i)+".png imgjpr/screen"+(c+i)+".png");
 					script.println("adb shell input keyevent 3");
-					reporte.println("<img src=\"" + RUTA_ADB + "\\imgjpr\\screen"+(c+i)+".png\" width=\"320\" height=\"640\">");
+					reporte.println("<img src=\"" + ruta_adb + "\\imgjpr\\screen"+(c+i)+".png\" width=\"320\" height=\"640\">");
 				}
 				c++;
 			}
@@ -120,7 +115,7 @@ public class Main {
 				script.println("adb shell screencap -p /sdcard/screen"+c+".png");
 				script.println("adb pull /sdcard/screen"+c+".png imgjpr/screen"+c+".png");
 				script.println("adb shell input keyevent 3");
-				reporte.println("<img src=\"" + RUTA_ADB + "\\imgjpr\\screen"+c+".png\" width=\"320\" height=\"640\">");
+				reporte.println("<img src=\"" + ruta_adb + "\\imgjpr\\screen"+c+".png\" width=\"320\" height=\"640\">");
 				c++;
 			}
 			
@@ -132,7 +127,7 @@ public class Main {
 			
 			//Evento 4
 			if(c<=Integer.parseInt(n)) {
-				reporte.println("<h4>Se inicia el evento 4: modo avión</h4>");
+				reporte.println("<h4>Se inicia el evento 4: modo aviï¿½n</h4>");
 				script.println("adb shell input keyevent 3");
 				script.println("adb shell input swipe 570 1550 570 1880 100");
 				script.println("adb shell input swipe 570 1550 570 1880 100");
@@ -141,7 +136,7 @@ public class Main {
 				script.println("adb shell screencap -p /sdcard/screen"+c+".png");
 				script.println("adb pull /sdcard/screen"+c+".png imgjpr/screen"+c+".png");
 				script.println("adb shell input keyevent 3");
-				reporte.println("<img src=\"" + RUTA_ADB + "\\imgjpr\\screen"+c+".png\" width=\"320\" height=\"640\">");
+				reporte.println("<img src=\"" + ruta_adb + "\\imgjpr\\screen"+c+".png\" width=\"320\" height=\"640\">");
 				c++;
 			}
 			
@@ -153,7 +148,7 @@ public class Main {
 			
 			//Evento 5
 			if(c<=Integer.parseInt(n)) {
-				reporte.println("<h4>Se inicia el evento 5: añadir contacto</h4>");
+				reporte.println("<h4>Se inicia el evento 5: aï¿½adir contacto</h4>");
 				script.println("adb shell input keyevent 3");
 				script.println("adb adb shell input keyevent 207");
 				script.println("adb shell am start -a android.intent.action.INSERT -d 'content://contacts/people' -t 'vnd.android.cursor.dir/person' -c 'android.intent.category.DEFAULT' -e 'name' 'Juan Pablo'  -e 'phone' '123456789'");
@@ -162,7 +157,7 @@ public class Main {
 				script.println("adb shell screencap -p /sdcard/screen"+c+".png");
 				script.println("adb pull /sdcard/screen"+c+".png imgjpr/screen"+c+".png");
 				script.println("adb shell input keyevent 3");
-				reporte.println("<img src=\"" + RUTA_ADB + "\\imgjpr\\screen"+c+".png\" width=\"320\" height=\"640\">");
+				reporte.println("<img src=\"" + ruta_adb + "\\imgjpr\\screen"+c+".png\" width=\"320\" height=\"640\">");
 				c++;
 			}
 			
@@ -182,7 +177,7 @@ public class Main {
 				script.println("adb shell screencap -p /sdcard/screen"+c+".png");
 				script.println("adb pull /sdcard/screen"+c+".png imgjpr/screen"+c+".png");
 				script.println("adb shell input keyevent 3");
-				reporte.println("<img src=\"" + RUTA_ADB + "\\imgjpr\\screen"+c+".png\" width=\"320\" height=\"640\">");
+				reporte.println("<img src=\"" + ruta_adb + "\\imgjpr\\screen"+c+".png\" width=\"320\" height=\"640\">");
 				c++;
 			}
 			
@@ -196,7 +191,7 @@ public class Main {
 			if(c<=Integer.parseInt(n)) {
 				int x = 250;
 				for (int i = 0; i < 3; i++) {
-					reporte.println("<h4>Se inicia el evento 7: pulsación larga</h4>");
+					reporte.println("<h4>Se inicia el evento 7: pulsaciï¿½n larga</h4>");
 					script.println("adb shell input keyevent 3");
 					script.println("adb shell input swipe 538 1714 583 1005 100");
 					script.println("adb shell input swipe "+(180+x*i)+" 940 "+(180+x*i)+" 940 1000");
@@ -204,7 +199,7 @@ public class Main {
 					script.println("adb shell screencap -p /sdcard/screen"+(c+i)+".png");
 					script.println("adb pull /sdcard/screen"+(c+i)+".png imgjpr/screen"+(c+i)+".png");
 					script.println("adb shell input keyevent 3");
-					reporte.println("<img src=\"" + RUTA_ADB + "\\imgjpr\\screen"+(c+i)+".png\" width=\"320\" height=\"640\">");
+					reporte.println("<img src=\"" + ruta_adb + "\\imgjpr\\screen"+(c+i)+".png\" width=\"320\" height=\"640\">");
 				}
 				c++;
 			}
@@ -217,17 +212,17 @@ public class Main {
 			
 			//Evento 8
 			if (c <= Integer.parseInt(n)) {
-				reporte.println("<h4>Se inicia el evento 8: Estado de batería</h4>");
+				reporte.println("<h4>Se inicia el evento 8: Estado de baterï¿½a</h4>");
 				script.println("adb shell input keyevent 3");
 				script.println("adb shell cat /sys/class/power_supply/battery/capacity > batterystats.txt");				
 
-				File file = new File(RUTA_ADB + "/batterystats.txt");
+				File file = new File(ruta_adb + "/batterystats.txt");
 				file.createNewFile();
 				
 				BufferedReader br = new BufferedReader(new FileReader(file));
 				String st;
 				while ((st = br.readLine()) != null) {
-					reporte.println("<h4>El estado de la batería es "+st+"%</h4>");
+					reporte.println("<h4>El estado de la baterï¿½a es "+st+"%</h4>");
 				}				
 				br.close();
 				c++;
@@ -251,7 +246,7 @@ public class Main {
 				script.println("adb shell screencap -p /sdcard/screen"+c+".png");
 				script.println("adb pull /sdcard/screen"+c+".png imgjpr/screen"+c+".png");
 				script.println("adb shell input keyevent 3");
-				reporte.println("<img src=\"" + RUTA_ADB + "\\imgjpr\\screen"+c+".png\" width=\"320\" height=\"640\">");
+				reporte.println("<img src=\"" + ruta_adb + "\\imgjpr\\screen"+c+".png\" width=\"320\" height=\"640\">");
 				c++;
 			}
 			
@@ -263,7 +258,7 @@ public class Main {
 			
 			//Evento 10
 			if(c<=Integer.parseInt(n)) {
-				reporte.println("<h4>Se inicia el evento 10: añadir contacto</h4>");
+				reporte.println("<h4>Se inicia el evento 10: aï¿½adir contacto</h4>");
 				script.println("adb shell input keyevent 3");
 				script.println("adb adb shell input keyevent 207");
 				script.println("adb shell am start -a android.intent.action.INSERT -d 'content://contacts/people' -t 'vnd.android.cursor.dir/person' -c 'android.intent.category.DEFAULT' -e 'name' 'Juan Pablo'  -e 'phone' '123456789'");
@@ -272,7 +267,7 @@ public class Main {
 				script.println("adb shell screencap -p /sdcard/screen"+c+".png");
 				script.println("adb pull /sdcard/screen"+c+".png imgjpr/screen"+c+".png");
 				script.println("adb shell input keyevent 3");
-				reporte.println("<img src=\"" + RUTA_ADB + "\\imgjpr\\screen"+c+".png\" width=\"320\" height=\"640\">");
+				reporte.println("<img src=\"" + ruta_adb + "\\imgjpr\\screen"+c+".png\" width=\"320\" height=\"640\">");
 				c++;
 			}
 
@@ -285,8 +280,7 @@ public class Main {
 		// Ejecuta el script
 		Runtime rt = Runtime.getRuntime();
 		rt.exec("cmd /c start script.bat");
-		//TODO Exit
-//		out.println("@exit");
+		script.println("@exit");
 		script.close();
 		reporte.close();
 	}
