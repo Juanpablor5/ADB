@@ -1,6 +1,3 @@
-# Parcial ADB
-## Juan Pablo Rocha - COD: 201611835
-
 Para ejecutar el programa, se deben realizar los siguientes pasos:
 1. Desde el cmd, acceder a la carpeta donde está guardada la herramienta y compilarla con el comando "javac Main.java", luego iniciar la ejecución de la herramienta con el comando "java Main".
 2. Cuando pida el número de eventos a realizar, escribir el número y luego enter.
